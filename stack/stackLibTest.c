@@ -130,3 +130,24 @@ void test_checks_weather_stack_is_not_empty_12(){
 	stack->top=2; 
 	ASSERT(false == isEmpty(stack));
 }
+
+void test_gives_top_element_of_stack_as_a_integer_13(){
+	Stack* stack;
+	int a[]={1,2,3,0,0};
+	stack = create(sizeof(int),5);
+	stack->elements = a ;
+	stack->top=2; 
+	ASSERT(3 == *(int*)top(stack));
+}
+void test_gives_top_element_of_stack_as_a_integer_14(){
+	char a[3]={"s"};
+	void* topElement;
+	char s = 's';
+	char d = 'd';
+	Stack* actual = create(sizeof(char),3);
+	Stack expected = {0,3,sizeof(char),a};
+	actual = push(actual,&s);
+	actual = push(actual,&d);
+	topElement = top(actual);
+	ASSERT(d == *(char*)topElement);
+}

@@ -7,7 +7,6 @@ typedef struct {
 	int top;
 	int length;
 	int typeSize;	 
-
 	void* elements;
 }Stack;
 
@@ -18,4 +17,4 @@ void* 	pop(Stack *s1);
 
 bool   	isEmpty(Stack* s1);			
 bool 	isFull(Stack* s1);
-int 	top(Stack* s1);
+void* 	top(Stack* s1);

@@ -109,6 +109,16 @@ int main(){
 		test_checks_weather_stack_is_not_empty_12();
 	tearDown();
 	testEnded();
+	testStarted("test_gives_top_element_of_stack_as_a_integer_13");
+	setup();
+		test_gives_top_element_of_stack_as_a_integer_13();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_top_element_of_stack_as_a_integer_14");
+	setup();
+		test_gives_top_element_of_stack_as_a_integer_14();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();
