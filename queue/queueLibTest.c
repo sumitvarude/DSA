@@ -126,17 +126,17 @@ void test_deQueues_char_elememt_from_queue_11(){
 }
 void test_deQueues_string_elememt_from_queue_12(){
 	String a[3]={"sumit"};
-	void* rareElement;
+	void* poppedElement;
 	String s ="sumit";
 	String d = "suraj";
 	Queue* actual = create(sizeof(String),3);
 	Queue expected = {0,3,sizeof(String),a};
 	enQueue(actual,&s);
 	enQueue(actual,&d);
-	rareElement = deQueue(actual);
-	ASSERT(0 == strcmp(s,*(String*)rareElement));
+	poppedElement = deQueue(actual);
+	ASSERT(0 == strcmp(s,*(String*)poppedElement));
 }
-void test_checks_weather_queue_is_full_12(){
+void test_checks_weather_queue_is_full_13(){
 	Queue* queue;
 	int a[]={1,2,3,4,5};
 	queue = create(sizeof(int),5);
@@ -145,7 +145,7 @@ void test_checks_weather_queue_is_full_12(){
 	printf("%d",isFull(queue)); 
 	ASSERT(true == isFull(queue));
 }
-void test_checks_weather_queue_is_not_full_13(){
+void test_checks_weather_queue_is_not_full_14(){
 	Queue* queue;
 	int a[]={1,2,3,0,0};
 	queue = create(sizeof(int),5);
@@ -153,7 +153,7 @@ void test_checks_weather_queue_is_not_full_13(){
 	queue->rare=3; 
 	ASSERT(false == isFull(queue));
 }
-void test_checks_weather_queue_is_empty_14(){
+void test_checks_weather_queue_is_empty_15(){
 	Queue* queue;
 	int a[]={0,0,0,0,0};
 	queue = create(sizeof(int),5);
@@ -161,7 +161,7 @@ void test_checks_weather_queue_is_empty_14(){
 	queue->rare=-1; 
 	ASSERT(true == isEmpty(queue));
 }
-void test_checks_weather_queue_is_not_empty_15(){
+void test_checks_weather_queue_is_not_empty_16(){
 	Queue* queue;
 	int a[]={1,2,3,0,0};
 	queue = create(sizeof(int),5);
@@ -170,7 +170,7 @@ void test_checks_weather_queue_is_not_empty_15(){
 	ASSERT(false == isEmpty(queue));
 }
 
-void test_gives_rare_element_of_queue_as_a_integer_16(){
+void test_gives_rare_element_of_queue_as_a_integer_17(){
 	Queue* queue;
 	int a[]={1,2,3,0,0};
 	queue = create(sizeof(int),5);
@@ -178,7 +178,7 @@ void test_gives_rare_element_of_queue_as_a_integer_16(){
 	queue->rare=2; 
 	ASSERT(3 == *(int*)givesRare(queue));
 }
-void test_gives_rare_element_of_queue_as_a_integer_17(){
+void test_gives_rare_element_of_queue_as_a_integer_18(){
 	char a[3]={"s"};
 	void* rareElement;
 	char s = 's';
