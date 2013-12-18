@@ -3,13 +3,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// void test_creates_task(){
-// 	Task* task= createTask(5,10);
-// 	ASSERT(5==task->priority);
-// 	ASSERT(10==task->time);
-// 	ASSERT(NULL==task->next);
-// 	free(task);
-// };
 void test_creates_taskManager(){
 	TaskManager* taskManager = createTaskManager(5);
 	ASSERT(5==taskManager->sliceTime);
@@ -48,7 +41,7 @@ void test_manages_tasks_in_taskManager(){
 	ASSERT(insertTask(taskManager,5,15));
 	ASSERT(2==taskManager->noOfTasks);
 	ASSERT(5==taskManager->sliceTime);
-	ASSERT(startTaskManager(taskManager));
-	// ASSERT(0==taskManager->noOfTasks);
+	// ASSERT(startTaskManager(taskManager));
+	// // ASSERT(0==taskManager->noOfTasks);
 
 };

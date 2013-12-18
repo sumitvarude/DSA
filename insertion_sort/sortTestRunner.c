@@ -25,6 +25,7 @@ void testEnded(){
 void resetTestCount(){
 	testCount=0;
 	passCount=0;
+	printf("********* Starting tests\n\n");
 }
 
 void summarizeTestCount(){

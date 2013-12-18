@@ -55,7 +55,6 @@ void test_inserts_integer_elememt_in_Queue_5(){
 	int element = 3;
 	Queue* queue = create(sizeof(int),3);
 	result = enQueue(queue,&element);
-	printf("%dkahi",result);
 	ASSERT(result);
 }
 void test_inserts_float_elememt_in_queue_6(){
@@ -95,7 +94,6 @@ void test_deQueues_integer_elememt_from_queue_9(){
 	enQueue(actual,&a);
 	enQueue(actual,&b);
 	poppedElement = deQueue(actual);
-	printf("%d\n",*(int*)poppedElement);
 	ASSERT(7 == *(int*)poppedElement);
 	ASSERT(areEqual(&expected,actual));
 }
@@ -142,7 +140,6 @@ void test_checks_weather_queue_is_full_13(){
 	queue = create(sizeof(int),5);
 	queue->elements = a ;
 	queue->rare=4;
-	printf("%d",isFull(queue)); 
 	ASSERT(true == isFull(queue));
 }
 void test_checks_weather_queue_is_not_full_14(){

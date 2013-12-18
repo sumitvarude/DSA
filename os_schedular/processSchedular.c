@@ -1,7 +1,7 @@
 #include "processSchedular.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "../insertionSort/sort.h"
+#include "../insertion_sort/sort.h"
 
 Task* createTask(int priority, int time){
 	Task* task  = malloc(sizeof(Task));

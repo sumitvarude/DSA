@@ -1,4 +1,4 @@
-#include "../doublyLinkedList/DLinkList.h"
+#include "../linked_list/DLinkList.h"
 #include <stdio.h>
 typedef List Stack;
 
