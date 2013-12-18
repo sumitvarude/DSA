@@ -94,9 +94,9 @@ int main(){
 		test_search_element_from_array_of_strings();
 	tearDown();
 	testEnded();
-	testStarted("test_search_element_from_the_String_array_which_is_not_found");
+	testStarted("test_give_null_if_the_element_is_not_present_in_array_for_strings");
 	setup();
-		test_search_element_from_the_String_array_which_is_not_found();
+		test_give_null_if_the_element_is_not_present_in_array_for_strings();
 	tearDown();
 	testEnded();
 

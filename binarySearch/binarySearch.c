@@ -1,7 +1,4 @@
 #include "binarySearch.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 void* search(void* array,void* key,int length,int elementSize,compareFunction* compare){
 	int mid,result,start = 0;

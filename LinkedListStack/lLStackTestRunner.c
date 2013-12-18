@@ -79,6 +79,21 @@ int main(){
 		test_pops_DOUBLE_element_from_stack();
 	tearDown();
 	testEnded();
+	testStarted("test_gives_top_element_as_INT_from_stack");
+	setup();
+		test_gives_top_element_as_INT_from_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_top_element_as_CHAR_from_stack");
+	setup();
+		test_gives_top_element_as_CHAR_from_stack();
+	tearDown();
+	testEnded();
+	testStarted("test_gives_top_element_as_DOUBLE_from_stack");
+	setup();
+		test_gives_top_element_as_DOUBLE_from_stack();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

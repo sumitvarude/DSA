@@ -49,9 +49,29 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_for_parenthesis_matching");
+	testStarted("test_with_only_flower_brackets_for_parenthesis_matching");
 	setup();
-		test_for_parenthesis_matching();
+		test_with_only_flower_brackets_for_parenthesis_matching();
+	tearDown();
+	testEnded();
+	testStarted("test_with_all_brackets_for_parenthesis_matching");
+	setup();
+		test_with_all_brackets_for_parenthesis_matching();
+	tearDown();
+	testEnded();
+	testStarted("test_with_only_square_brackets_for_parenthesis_matching");
+	setup();
+		test_with_only_square_brackets_for_parenthesis_matching();
+	tearDown();
+	testEnded();
+	testStarted("test_with_characters_in_between_for_parenthesis_matching");
+	setup();
+		test_with_characters_in_between_for_parenthesis_matching();
+	tearDown();
+	testEnded();
+	testStarted("test_to_fail_parenthesis_matching");
+	setup();
+		test_to_fail_parenthesis_matching();
 	tearDown();
 	testEnded();
 

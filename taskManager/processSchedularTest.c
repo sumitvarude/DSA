@@ -1,35 +1,54 @@
 #include "testUtils.h"
 #include "processSchedular.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-//create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
+// void test_creates_task(){
+// 	Task* task= createTask(5,10);
+// 	ASSERT(5==task->priority);
+// 	ASSERT(10==task->time);
+// 	ASSERT(NULL==task->next);
+// 	free(task);
+// };
+void test_creates_taskManager(){
+	TaskManager* taskManager = createTaskManager(5);
+	ASSERT(5==taskManager->sliceTime);
+	ASSERT(0==taskManager->noOfTasks);
+	ASSERT(NULL==taskManager->tasks);
+	free(taskManager);
+};
+void test_inserts_task_in_given_empty_taskManager(){
+	TaskManager* taskManager = createTaskManager(5);
+	ASSERT(insertTask(taskManager,5,10));
+	ASSERT(1==taskManager->noOfTasks);
+	ASSERT(5==taskManager->sliceTime);
+	free(taskManager);
+};
+void test_inserts_task_in_given_taskManager1(){
+	TaskManager* taskManager = createTaskManager(5);
+	ASSERT(insertTask(taskManager,5,10));
+	ASSERT(insertTask(taskManager,7,10));
+	ASSERT(2==taskManager->noOfTasks);
+	ASSERT(5==taskManager->sliceTime);
+	free(taskManager);	
+};
 
-void test_create_a_shedular(){
-	Shedular* shedular;
-	Shedular expected;
-	shedular = create();
-	expected.head = NULL;
-	expected.noOfProcesses = 0;
-	ASSERT(shedular->noOfProcesses==expected.noOfProcesses);
-	ASSERT(shedular->head==expected.head);
-}
-void test_create_a_process(){
-	Process* process;
-	process = createProcess(10,4);
-	ASSERT(10 == process->time);
-	ASSERT(4 == process->priority);
-}
-void test_insert_a_process_in_empty_shedular(){
-	Shedular* shedular;
-	shedular = create();
-	insertProcess(shedular ,2 ,4);
-	ASSERT(2 == shedular->head->time);
-	ASSERT(4 == shedular->head->priority);
-}
-void test_insert_2_process_in_shedular(){
-	Shedular* shedular;
-	shedular = create();
-	insertProcess(shedular ,2 ,4);
-	insertProcess(shedular ,10 ,3);
-	ASSERT(10 == shedular->head->time);
-	ASSERT(3 == shedular->head->priority);
-}
+void test_inserts_task_in_given_taskManager2(){
+	TaskManager* taskManager = createTaskManager(5);
+	ASSERT(insertTask(taskManager,5,10));
+	ASSERT(insertTask(taskManager,9,10));
+	ASSERT(insertTask(taskManager,7,10));
+	ASSERT(3==taskManager->noOfTasks);
+	ASSERT(5==taskManager->sliceTime);
+	free(taskManager);
+};
+void test_manages_tasks_in_taskManager(){
+	TaskManager* taskManager = createTaskManager(5);
+	ASSERT(insertTask(taskManager,5,13));
+	ASSERT(insertTask(taskManager,5,15));
+	ASSERT(2==taskManager->noOfTasks);
+	ASSERT(5==taskManager->sliceTime);
+	ASSERT(startTaskManager(taskManager));
+	// ASSERT(0==taskManager->noOfTasks);
+
+};

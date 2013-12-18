@@ -12,3 +12,7 @@ void*  pop(Stack* stack){
 	removeElement(stack, 0);
 	return poppedElement;
 }
+
+void* top(Stack* stack){
+	return stack->head->data;
+}

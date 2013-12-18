@@ -1,23 +1,21 @@
+#include <string.h>
 #include "testUtils.h"
 #include "binarySearch.h"
+typedef char String[50];
 
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-
-int compareInt (void* a, void* b){
-    return (*(int*)a - *(int*)b);
+int compareInt (void* key, void* element){
+    return (*(int*)key - *(int*)element);
 }
-int compareDouble (void* a, void* b){
-    return (*(double*)a - *(double*)b);
+int compareDouble (void* key, void* element){
+    return (*(double*)key - *(double*)element);
 }
-int compareString(void *a, void *b){ 
-         return (strcmp(*(String*)a,*(String*)b));
+int compareString(void *key, void *element){ 
+         return (strcmp(*(String*)key,*(String*)element));
 }
-int compareChar(void* a, void* b){
-        return (*(char*)a - *(char*)b);
+int compareChar(void* key, void* element){
+        return (*(char*)key - *(char*)element);
 }
 void test_searches_element_from_char_array(){
     char values[5] = {'p','q','r','s','t'};

@@ -1,21 +1,17 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-typedef char string[50];
-
-typedef struct process{
-	struct process* next;
-	struct process* previous;	
-	int time;
+typedef struct {
 	int priority;
-}Process;
+	int time;
+	void* next;
+	void* previous;
+}Task;
 
-typedef  struct{
-	Process* head;
-	int noOfProcesses;
-}Shedular;
+typedef struct {
+	int noOfTasks;
+	int sliceTime;
+	Task* tasks;
+}TaskManager;
 
-Shedular* create();
-Process* createProcess(int time ,int priority);
-int insertProcess(Shedular* listOfProcess , int time ,int priority);
+//Task* createTask(int priority,int time);
+TaskManager* createTaskManager(int sliceTime);
+int insertTask(TaskManager* taskManager,int priority,int time);
+int startTaskManager(TaskManager* taskManager);

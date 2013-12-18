@@ -23,14 +23,14 @@ void* givesRear(Queue* queue){
 	return queue->elements+(queue->end*queue->typeSize); 
 };
 
-int enQueue(Queue* queue, void* element){
+int enqueue(Queue* queue, void* element){
 	if(isFull(queue)) return 0;
 		if(queue->end==queue->length-1) queue->end=-1;
 	memcpy(queue->elements+(++queue->end*queue->typeSize),element,queue->typeSize);
 	return 1;
 };
 
-void* deQueue(Queue* queue){
+void* dequeue(Queue* queue){
 	if(isEmpty(queue)) return NULL;	
 	queue->start++;
 	return queue->elements;

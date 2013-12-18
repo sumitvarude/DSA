@@ -27,27 +27,61 @@ void test_3_inserts_two_CHAR_element_in_stack(){
 void test_pops_CHAR_element_from_stack(){
 	char a[] = {'a','b'};
 	Stack* stack = createStack();
+	void* element;
 	push(stack,&a[0]);
 	push(stack,&a[1]);
-	pop(stack);
+	element = pop(stack);
+	ASSERT('b' == *(char*)element);
 	ASSERT('a' == *(char*)stack->head->data);
 	ASSERT(1 == stack->noOfElements);
 }
 void test_pops_INTEGER_element_from_stack(){
 	int a[] = {1,2};
 	Stack* stack = createStack();
+	void* element;
 	push(stack,&a[0]);
 	push(stack,&a[1]);
-	pop(stack);
+	element = pop(stack);
+	ASSERT(2 == *(int*)element);
 	ASSERT(1 == *(int*)stack->head->data);
 	ASSERT(1 == stack->noOfElements);
 }
 void test_pops_DOUBLE_element_from_stack(){
 	double a[] = {1.0,2.0};
 	Stack* stack = createStack();
+	void* element;
 	push(stack,&a[0]);
 	push(stack,&a[1]);
-	pop(stack);
+	element = pop(stack);
+	ASSERT(2.0 == *(double*)element);	
 	ASSERT(1.0 == *(double*)stack->head->data);
 	ASSERT(1 == stack->noOfElements);
+}
+
+void test_gives_top_element_as_INT_from_stack(){
+	int a[] = {1,2};
+	Stack* stack = createStack();
+	void* topElement;
+	push(stack,&a[0]);
+	push(stack,&a[1]);
+	topElement = top(stack);
+	ASSERT(2 == *(int*)topElement);
+}
+void test_gives_top_element_as_CHAR_from_stack(){
+	char a[] = {'a','b'};
+	Stack* stack = createStack();
+	void* topElement;
+	push(stack,&a[0]);
+	push(stack,&a[1]);
+	topElement = top(stack);
+	ASSERT('b' == *(char*)topElement);
+}
+void test_gives_top_element_as_DOUBLE_from_stack(){
+	double a[] = {1.0,2.0};
+	Stack* stack = createStack();
+	void* topElement;
+	push(stack,&a[0]);
+	push(stack,&a[1]);
+	topElement = top(stack);
+	ASSERT(2.0 == *(double*)topElement);
 }

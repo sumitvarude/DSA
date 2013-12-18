@@ -49,24 +49,29 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_create_a_shedular");
+	testStarted("test_creates_taskManager");
 	setup();
-		test_create_a_shedular();
+		test_creates_taskManager();
 	tearDown();
 	testEnded();
-	testStarted("test_create_a_process");
+	testStarted("test_inserts_task_in_given_empty_taskManager");
 	setup();
-		test_create_a_process();
+		test_inserts_task_in_given_empty_taskManager();
 	tearDown();
 	testEnded();
-	testStarted("test_insert_a_process_in_empty_shedular");
+	testStarted("test_inserts_task_in_given_taskManager1");
 	setup();
-		test_insert_a_process_in_empty_shedular();
+		test_inserts_task_in_given_taskManager1();
 	tearDown();
 	testEnded();
-	testStarted("test_insert_2_process_in_shedular");
+	testStarted("test_inserts_task_in_given_taskManager2");
 	setup();
-		test_insert_2_process_in_shedular();
+		test_inserts_task_in_given_taskManager2();
+	tearDown();
+	testEnded();
+	testStarted("test_manages_tasks_in_taskManager");
+	setup();
+		test_manages_tasks_in_taskManager();
 	tearDown();
 	testEnded();
 

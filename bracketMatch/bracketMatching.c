@@ -1,43 +1,38 @@
-# include <stdio.h>
-# include <stdlib.h>
-# include <stdbool.h>
-# include <string.h>
-# include "../stack/stackLib.h"
-typedef char string[256];
-bool performMatch(Stack *stack,string s){
+#include <stdbool.h>
+#include <string.h>
+#include "bracketMatching.h"
+
+bool matchParenthesis(string s){
 	int i;
+	string openBrackets = {'{','[','('};
+	Stack* stack = create(sizeof(char),256);
 	for(i=0 ; i<strlen(s) ; i++){
-		
 		if(s[i]=='{' || s[i]=='[' || s[i]=='('){
 			push(stack,&s[i]);
 		}
 		switch(s[i]) 
 		{
 		    case '}':
-		    		if(*(char*)top(stack)=='{') pop(stack);
-		    		push(stack,&s[i]);
-		    		break;
+		    		if(*(char*)top(stack)=='{'){pop(stack); break;}
+		    		return 0; 
 			case ']':
-					if(*(char*)top(stack)=='[') pop(stack);
-		    		push(stack,&s[i]);	
-		    		break;
+					if(*(char*)top(stack)=='['){pop(stack);	break;}
+		    			
+		    		return 0; 
 		    case ')':
-		    		if(*(char*)top(stack)=='(') pop(stack);
-		    		push(stack,&s[i]);
-		    		break;
-		    default :
-		    		break;
+		    		if(*(char*)top(stack)=='('){pop(stack);	break;}
+		    		return 0; 
 		}
 	}
-	if(stack->top==-1)
-		return true;
-	return false;
+	return (stack->top==-1)?true:false;
 }
+
+
 // int main(){
 // 	Stack *stack = create(sizeof(char),256);
 //  	if(performMatch(stack,"}asdkjkljdss9()(){}a[dsadas(af{}asdf)affa]}"))
-//  		printf("matched");
+//  		prin,char stf("matched");
 //  	else
 //  		printf("not matched");
-//  	return 1;
-//  }
+ //  	re&s1;
+// stack }
