@@ -10,7 +10,6 @@ typedef struct {
 } List;
 
 List* createList();
-int insert(List* list, int index, void* data);
 int insertAtStart(List* list,void* data);
 int insertAtLast(List* list,void* data);
 int insertAtMiddle(List* list,int index,void* data);
