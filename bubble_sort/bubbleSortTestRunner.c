@@ -79,6 +79,11 @@ int main(){
 		test_sorts_array_of_float_elements();
 	tearDown();
 	testEnded();
+	testStarted("test_sorts_array_of_char_elements");
+	setup();
+		test_sorts_array_of_char_elements();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

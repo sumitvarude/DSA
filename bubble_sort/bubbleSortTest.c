@@ -53,3 +53,9 @@ void test_sorts_array_of_float_elements(){
 	performSort(data, 3,sizeof(float), compareFloats);
 	ASSERT(0 == isSorted(data, 3,sizeof(float), compareFloats));
 }
+
+void test_sorts_array_of_char_elements(){
+	char data[] = {'b','c','a'};
+	performSort(data, 3,sizeof(char), compareChars);
+	ASSERT(0 == isSorted(data, 3,sizeof(char), compareChars));
+}
