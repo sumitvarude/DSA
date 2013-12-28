@@ -18,6 +18,6 @@ HashMap* create(HashFunc hashFunc, CompareFunc compare);
 int put(HashMap *map, void *key, void *value);
 void* get(HashMap *map, void *key);
 void* remove(HashMap *map, void *key);
-int searchData(HashMap* map , void* key);
+int searchData(HashMap* map , void *key);
 // void* keys(HashMap *map) ;
 void dispose(HashMap *map);

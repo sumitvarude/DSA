@@ -61,7 +61,7 @@ int insertTreeNode(Tree *tree,void *parent,void *child){
 	matchedTreeNode =  searchTreeNode(tree,parent);
 	node->parent = matchedTreeNode;
 	if(matchedTreeNode->list == NULL){
-		list = create();//creation of list who will dispose it
+		list = create();
 		matchedTreeNode->list = list;
 	}
 	list = matchedTreeNode->list;

@@ -74,9 +74,9 @@ int main(){
 		test_sorts_array_of_double_elements();
 	tearDown();
 	testEnded();
-	testStarted("test_sorts_array_of_char_elements");
+	testStarted("test_sorts_array_of_float_elements");
 	setup();
-		test_sorts_array_of_char_elements();
+		test_sorts_array_of_float_elements();
 	tearDown();
 	testEnded();
 

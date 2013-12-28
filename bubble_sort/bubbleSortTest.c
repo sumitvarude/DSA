@@ -8,6 +8,9 @@ int compareInts(void *element1,void *element2){
 int compareDoubles(void *element1,void *element2){
 	return (*(double*)element1)-(*(double*)element2);
 }
+int compareFloats(void *element1,void *element2){
+	return (*(double*)element1)-(*(double*)element2);
+}
 int compareChars(void *element1,void *element2){
 	return (*(char*)element1)-(*(char*)element2);
 }
@@ -44,4 +47,9 @@ void test_sorts_array_of_double_elements(){
 	double data[] = {3.0,2.0,1.0};
 	performSort(data, 3,sizeof(double), compareDoubles);
 	ASSERT(0 == isSorted(data, 3,sizeof(double), compareDoubles));
+}
+void test_sorts_array_of_float_elements(){
+	float data[] = {3.0,2.0,1.0};
+	performSort(data, 3,sizeof(float), compareFloats);
+	ASSERT(0 == isSorted(data, 3,sizeof(float), compareFloats));
 }

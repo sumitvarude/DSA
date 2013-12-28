@@ -14,7 +14,7 @@ Node* createNode(void* data){
 	return node;
 };
 
-int insertAtBeginning(Node* nodeToInsert,List* list){
+int insertAtStart(Node* nodeToInsert,List* list){
 	list->length++;
 	nodeToInsert->next = list->head;
 	((Node*)(list->head))->previous = nodeToInsert;
@@ -22,7 +22,7 @@ int insertAtBeginning(Node* nodeToInsert,List* list){
 	return 1;
 };
 
-int insertAtSpecifiedIndex(Node* node,Node* nodeToInsert,List* list){
+int insertAtIndex(Node* node,Node* nodeToInsert,List* list){
 	list->length++;
 	nodeToInsert->previous = node;
 	nodeToInsert->next = node->next;
@@ -48,8 +48,8 @@ int insert(List* list,void* element,int index){
 	for(i=1;i<index-1;i++)
 		node = node->next;
 	if(index == 1)
-		return insertAtBeginning(nodeToInsert,list);
-	return insertAtSpecifiedIndex(node,nodeToInsert,list);
+		return insertAtStart(nodeToInsert,list);
+	return insertAtIndex(node,nodeToInsert,list);
 };
 
 Node* setLinksToNULL(Node* node){

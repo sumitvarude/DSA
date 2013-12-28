@@ -49,14 +49,14 @@ int main(){
 	fixtureSetup();
 	resetTestCount();
 
-	testStarted("test_inserting_first_node_in_linked_list");
+	testStarted("test_test_inserts_first_node_in_tree");
 	setup();
-		test_inserting_first_node_in_linked_list();
+		test_test_inserts_first_node_in_tree();
 	tearDown();
 	testEnded();
-	testStarted("test_inserting_two_nodes_one_root_and_its_child");
+	testStarted("test_inserts_child_at_root");
 	setup();
-		test_inserting_two_nodes_one_root_and_its_child();
+		test_inserts_child_at_root();
 	tearDown();
 	testEnded();
 	testStarted("test_inserting_three_nodes_one_after_the_other");
