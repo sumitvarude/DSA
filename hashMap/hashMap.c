@@ -17,14 +17,14 @@ Node* createNode(void* data){
 	node->data = data;
 	return node;
 }
-Data* getData(void *key, void *value){
+Data* createData(void *key, void *value){
 	Data* data = calloc(1, sizeof(Data));
 	data->key =key;
 	data->value = value;
 	return data;
 }
 int put(HashMap *map, void *key, void *value){
-	Data* data = getData(key, value);
+	Data* data = createData(key, value);
 	Node* node = createNode(data);
     int bucketNumber = map->hashFunc(key) % capasity;
 	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));

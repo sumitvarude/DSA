@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 Queue* create (int typeSize, int length){
 	Queue* queue = calloc(1,sizeof(Queue)); 
@@ -29,16 +28,16 @@ void* deQueue(Queue* queue){
 	return poppedElement;
 }
 
-bool isEmpty(Queue* queue){
+int isEmpty(Queue* queue){
 	if(0 > queue->rare)
-		return true;
-	return false;
+		return 1;
+	return 0;
 }				
 
-bool isFull(Queue* queue){
+int isFull(Queue* queue){
 	if(queue->length-1 <= queue->rare)
-		return true;
-	return false;
+		return 1;
+	return 0;
 }
 void* givesRare(Queue* queue){
 	void* element;

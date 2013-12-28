@@ -1,9 +1,8 @@
 #include "testUtils.h"
 #include "stackLib.h"
 #include "string.h"
+#include "../customTypes.h"
 
-typedef char string[256];
-//create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 int areEqual(Stack* expected, Stack* actual){
 	int result = (expected->length == actual->length) ;
 	if(!result) return result;
@@ -11,7 +10,7 @@ int areEqual(Stack* expected, Stack* actual){
 	return 0 == memcmp(expected->elements,actual->elements,actual->length*actual->typeSize);
 }
 
-void debugStack(string print,Stack *a) {
+void debugStack(String print,Stack *a) {
 	printf ("%s\n",print);
 	printf ("Size of element: %d\n", a->typeSize);
 	printf ("Num of elements: %d\n", a->length);
@@ -103,7 +102,6 @@ void test_checks_weather_stack_is_full_9(){
 	stack = create(sizeof(int),5);
 	stack->elements = a ;
 	stack->top=4;
-	printf("%d",isFull(stack)); 
 	ASSERT(true == isFull(stack));
 }
 void test_checks_weather_stack_is_not_full_10(){

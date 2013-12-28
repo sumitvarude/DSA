@@ -16,5 +16,3 @@ Node* createNode(int priority,void* data);
 int enqueue(Queue* queue, int priority,void* data);
 void* dequeue(Queue* Queue);
 int isEmpty(Queue* queue);
-
-//Node* traverseTill(Queue* queue,int index);

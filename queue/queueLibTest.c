@@ -1,13 +1,9 @@
 #include "testUtils.h"
 #include "queueLib.h"
-
-//create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
-
-#include "testUtils.h"
+#include "../customTypes.h"
 #include "string.h"
+#include <stdio.h>
 
-typedef char string[256];
-//create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
 int areEqual(Queue* expected, Queue* actual){
 	int result = (expected->length == actual->length) ;
 	if(!result) return result;
@@ -15,7 +11,7 @@ int areEqual(Queue* expected, Queue* actual){
 	return 0 == memcmp(expected->elements,actual->elements,actual->length*actual->typeSize);
 }
 
-void debugQueue(string print,Queue *a) {
+void debugQueue(String print,Queue *a) {
 	printf ("%s\n",print);
 	printf ("Size of element: %d\n", a->typeSize);
 	printf ("Num of elements: %d\n", a->length);
@@ -51,7 +47,7 @@ void test_creates_Queue_of_five_float_elements_4(){
 	ASSERT(areEqual(&expected,actual));
 }
 void test_inserts_integer_elememt_in_Queue_5(){
-	bool result;
+	int result;
 	int element = 3;
 	Queue* queue = create(sizeof(int),3);
 	result = enQueue(queue,&element);
@@ -75,7 +71,7 @@ void test_pushes_char_elememt_in_stack_7(){
 }
 
 void test_not_inserts_elememt_in_Queue_if_queue_is_full_8(){
-	bool result;
+	int result;
 	int a = 3,b = 4,c = 5;
 	Queue* queue = create(sizeof(int),3);
 	enQueue(queue,&a);
@@ -140,7 +136,7 @@ void test_checks_weather_queue_is_full_13(){
 	queue = create(sizeof(int),5);
 	queue->elements = a ;
 	queue->rare=4;
-	ASSERT(true == isFull(queue));
+	ASSERT(1 == isFull(queue));
 }
 void test_checks_weather_queue_is_not_full_14(){
 	Queue* queue;
@@ -148,7 +144,7 @@ void test_checks_weather_queue_is_not_full_14(){
 	queue = create(sizeof(int),5);
 	queue->elements = a ;
 	queue->rare=3; 
-	ASSERT(false == isFull(queue));
+	ASSERT(0 == isFull(queue));
 }
 void test_checks_weather_queue_is_empty_15(){
 	Queue* queue;
@@ -156,7 +152,7 @@ void test_checks_weather_queue_is_empty_15(){
 	queue = create(sizeof(int),5);
 	queue->elements = a ;
 	queue->rare=-1; 
-	ASSERT(true == isEmpty(queue));
+	ASSERT(1 == isEmpty(queue));
 }
 void test_checks_weather_queue_is_not_empty_16(){
 	Queue* queue;
@@ -164,7 +160,7 @@ void test_checks_weather_queue_is_not_empty_16(){
 	queue = create(sizeof(int),5);
 	queue->elements = a ;
 	queue->rare=2; 
-	ASSERT(false == isEmpty(queue));
+	ASSERT(0 == isEmpty(queue));
 }
 
 void test_gives_rare_element_of_queue_as_a_integer_17(){

@@ -1,5 +1,6 @@
 #include "circularQueue.h"
-
+#include <stdlib.h>
+#include <memory.h>
 Queue* create (int typeSize, int length){
 	Queue* queue = calloc(1,sizeof(Queue));
 	queue->elements=calloc(length,typeSize); 

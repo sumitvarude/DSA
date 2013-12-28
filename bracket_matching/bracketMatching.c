@@ -2,7 +2,7 @@
 #include <string.h>
 #include "bracketMatching.h"
 
-bool matchParenthesis(string s){
+int matchParenthesis(string s){
 	int i;
 	string openBrackets = {'{','[','('};
 	Stack* stack = create(sizeof(char),256);
@@ -26,13 +26,3 @@ bool matchParenthesis(string s){
 	}
 	return (stack->top==-1)?true:false;
 }
-
-
-// int main(){
-// 	Stack *stack = create(sizeof(char),256);
-//  	if(performMatch(stack,"}asdkjkljdss9()(){}a[dsadas(af{}asdf)affa]}"))
-//  		prin,char stf("matched");
-//  	else
-//  		printf("not matched");
- //  	re&s1;
-// stack }

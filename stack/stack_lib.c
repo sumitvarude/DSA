@@ -22,14 +22,14 @@ void dispose(){
 	free(stack);
 }
 
-boolean IsStackFull(Stack *st){
+int IsStackFull(Stack *st){
 	if((st->top+1) >= st->length)
-		return true;
+		return 1;
 	else
-		return false;
+		return 0;
 }
 
-boolean push(void* st,void* elementToPush){
+int push(void* st,void* elementToPush){
 	Stack* stack = (Stack*)st;
 	void* address;
 	if(IsStackFull(stack)){
@@ -37,17 +37,17 @@ boolean push(void* st,void* elementToPush){
 		stack->elements = realloc(stack->elements, stack->length*sizeof(void*));		
 	}
 	stack->elements[++stack->top] = elementToPush;
-	return true;
+	return 1;
 }
 
-boolean IsEmpty(Stack* stack){
+int IsEmpty(Stack* stack){
         return stack->top==-1;
 }
 
 void* pop(void* st){
 	Stack* stack = (Stack*)st;
 	if(IsEmpty(stack))
-		return false;
+		return 0;
 	stack->top--;
 	return stack->elements[stack->top + 1];
 }

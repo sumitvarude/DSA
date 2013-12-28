@@ -60,11 +60,28 @@ int insertAtMiddle(List* list,int index,void* data){
 	}
 	return 1;
 };
-
+int insertNode(List* list , int index , void* data){
+        if (index > list->noOfElements) return 0;
+        if (index == 0)        insertAtStart(list, data);
+        else if(index == list->noOfElements)        insertAtLast(list,data);
+        else insertAtMiddle(list, index, data);
+        return 1;
+};
 int getLength(List* list){
 	return list->noOfElements;
 }
-
+int search(List* list , void* element , Compare compare){
+        Node* node;
+        int index= 0;
+        if(0 == list->noOfElements) return -1;
+        node = list->head;
+        while(node->next != NULL){
+                if (!compare(element , node->data)) return index;
+                index++;
+                node = node->next;
+        }
+        return -1;
+}
 int removeElement(List* list, int index){
 	Node* nodeToRemove;
 	Node* previousNode;
@@ -80,23 +97,3 @@ int removeElement(List* list, int index){
 	free(nodeToRemove);
 	return 1;
 }
-
-// int insert(List* list, int index, void* data){
-// 	Node* node;
-// 	node = calloc(1,sizeof(Node));
-// 	printf("index:%d",index);
-// 	printf("list->noOfElements:%d",list->noOfElements);
-// 	if(index == 0){
-// 		printf("aa gaya1");
-// 		return insertAtStart(list,node, data);
-// 	}
-// 	if(index == list->noOfElements){
-// 		printf("aa gaya2");
-// 		return insertAtLast(list,node, data);
-// 	}
-// 	if((index > 0 && index < list->noOfElements)|| ){
-// 		printf("aa gaya3");
-// 		return insertAtMiddle(list, node, index, data);
-// 	}
-// 	return 0;
-// }

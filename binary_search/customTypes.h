@@ -1,0 +1,1 @@
+typedef char string[256];

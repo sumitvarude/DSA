@@ -18,15 +18,15 @@ TreeNode* createTreeNode(void* child){
 	return node;
 };
 
-TreeNode* getTreeNode(List* list,void* parent,compareFunc cmp){
+TreeNode* getTreeNode(List* list,void* parentData,compareFunc cmp){
 	TreeNode *tn;
 	Iterator it = getIterator(list);
 	while(it.hasNext(&it)){
 		tn = it.next(&it);
-		if(0 == cmp(tn->data,parent))
+		if(0 == cmp(tn->data,parentData))
 			return tn;
 		if(tn->list)
-			return getTreeNode(tn->list,parent,cmp);
+			return getTreeNode(tn->list,parentData,cmp);
 	}
 	return NULL;
 };
@@ -108,26 +108,3 @@ Iterator getChildren(Tree *tree,void* parent){
 	return it;
 };
 
-int getIndex(List* list,void* data,compareFunc cmp){
-	int i = 0;
-	TreeNode *tn;
-	Iterator it = getIterator(list);
-	while(it.hasNext(&it)){
-		i = i + 1;
-		tn = (TreeNode*)it.next(&it);
-		if(0 == cmp(tn->data,data))
-			return i;
-	}
-	return i;
-};
-
-int removeTreeNode(Tree *tree,void* data){
-	TreeNode *matchedNode = searchTreeNode(tree,data);
-	List* list;
-	int index;
-	if(!matchedNode) return 0;
-	list = matchedNode->parent->list;
-	index = getIndex(list,data,tree->compare);
-	remove(list,index);
-	return 1;
-};

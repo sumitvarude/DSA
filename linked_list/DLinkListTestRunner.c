@@ -114,6 +114,21 @@ int main(){
 		test_13_removes_a_node_of___CHAR___type_at_THIRD_position();
 	tearDown();
 	testEnded();
+	testStarted("test_search_data_in_given_list_return_index");
+	setup();
+		test_search_data_in_given_list_return_index();
+	tearDown();
+	testEnded();
+	testStarted("test_search_data_in_empty_list_return_minus_one");
+	setup();
+		test_search_data_in_empty_list_return_minus_one();
+	tearDown();
+	testEnded();
+	testStarted("test_search_gives_minus_one_if_data_not_found");
+	setup();
+		test_search_gives_minus_one_if_data_not_found();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

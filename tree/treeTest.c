@@ -7,7 +7,7 @@ int cmpInt(void* first,void* second){
 	return *(int*)first - *(int*)second;
 };
 
-void test_inserting_first_node_in_linked_list(){
+void test_test_inserts_first_node_in_tree(){
 	Tree tree = createTree(cmpInt);
 	Iterator it;
 	void *element;
