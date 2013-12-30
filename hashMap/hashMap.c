@@ -73,7 +73,4 @@ void* remove(HashMap *map, void *key){
 	return data;
 }
 
-// void dispose(HashMap *map){
-// 	free(map->buckets);
-// 	free(map);
-// }
+// dispose(HashMap *map)

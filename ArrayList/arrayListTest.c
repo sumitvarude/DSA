@@ -47,13 +47,10 @@ void test_interns_grows_beyond_capacity() {
 	int noOfElements = 1;
 	ArrayList list = create(noOfElements);
 	ArrayList *listPtr = &list;
-
 	insert(listPtr, 0, &prateek);
 	insert(listPtr, 1, &ji);
-
 	ASSERT(&prateek == get(listPtr, 0));
 	ASSERT(&ji == get(listPtr, 1));
-
 	dispose(listPtr);		
 }
 

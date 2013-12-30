@@ -72,7 +72,6 @@ void test_removes_an_element_from_hashmap(){
 	ASSERT(&key == data->key);
 	ASSERT(&value == data->value);
 	ASSERT(-1 == searchData(map,&key));
-
 }
 
 void test_removes_two_elements_from_hashmap(){
