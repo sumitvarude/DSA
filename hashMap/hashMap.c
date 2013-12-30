@@ -61,7 +61,14 @@ int getIndexInBucket(HashMap* map ,void* key ,List* list){
 	}while(node->next != NULL);
 	return index;
 }
-
+void* remove(HashMap *map, void *key){
+	void* data = get(map, key);
+	int index ,bucketNumber = map->hashFunc(key) % 10;
+	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));
+	index = getIndexInBucket( map ,key ,list);
+	removeElement(list,index);
+	return data;
+}
 void dispose(HashMap *map){
 	free(map->buckets);
 	free(map);

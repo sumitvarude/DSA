@@ -64,14 +64,24 @@ int main(){
 		test_add_an_element_to_hashmap2();
 	tearDown();
 	testEnded();
-	testStarted("test_get_an_element_from_hashmap");
+	testStarted("test_gets_an_element_from_hashmap");
 	setup();
-		test_get_an_element_from_hashmap();
+		test_gets_an_element_from_hashmap();
 	tearDown();
 	testEnded();
-	testStarted("test_get_another_element_from_hashmap");
+	testStarted("test_gets_another_element_from_hashmap");
 	setup();
-		test_get_another_element_from_hashmap();
+		test_gets_another_element_from_hashmap();
+	tearDown();
+	testEnded();
+	testStarted("test_removes_an_element_from_hashmap");
+	setup();
+		test_removes_an_element_from_hashmap();
+	tearDown();
+	testEnded();
+	testStarted("test_removes_two_elements_from_hashmap");
+	setup();
+		test_removes_two_elements_from_hashmap();
 	tearDown();
 	testEnded();
 
