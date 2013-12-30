@@ -36,7 +36,7 @@ void test_add_an_element_to_hashmap2(){
 	ASSERT(searchData(map,&key1));
 	ASSERT(searchData(map,&key));
 }
-void test_get_an_element_from_hashmap(){
+void test_gets_an_element_from_hashmap(){
 	Data* data;
 	String key = "intern" , value ="suraj";
 	HashMap* map = create(hashFun, areKeyEqual1);
@@ -46,7 +46,7 @@ void test_get_an_element_from_hashmap(){
 	ASSERT(&value == data->value);
 }
 
-void test_get_another_element_from_hashmap(){
+void test_gets_another_element_from_hashmap(){
 	Data *data1,*data2;
 	String key1 = "intern1" , value1 ="suraj";
 	String key2 = "intern2" , value2 ="suradfaj";
@@ -56,21 +56,9 @@ void test_get_another_element_from_hashmap(){
 
 	data1 = get(map, &key1);
 	data2 = get(map, &key2);
-	
+
 	ASSERT(&key1 == data1->key);
 	ASSERT(&value1 == data1->value);
 	ASSERT(&key2 == data2->key);
 	ASSERT(&value2 == data2->value);
 }
-
-// void test_remove_an_element_to_hashmap(){
-// 	Data* data;
-// 	String key="intern" , value ="suraj";
-// 	HashMap* map = create(hashFun, areKeyEqual1);
-// 	ASSERT(put(map, &key , &value));
-// 	data =remove(map, &key);
-// 	ASSERT(&key == data->key);
-// 	ASSERT(&value == data->value);
-// 	ASSERT(-1 == searchData(map,&key));
-
-// }
