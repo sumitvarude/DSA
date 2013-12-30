@@ -1,15 +1,15 @@
 typedef char string[50];
 
 typedef struct process{
-        struct process* next;
-        struct process* previous;        
-        int time;
-        int priority;
+    struct process* next;
+    struct process* previous;        
+    int time;
+    int priority;
 }Process;
 
 typedef struct{
-        Process* head;
-        int noOfProcesses;
+    Process* head;
+    int noOfProcesses;
 }Shedular;
 
 Shedular* create();
