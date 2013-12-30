@@ -16,19 +16,19 @@ Node* createNode(void* data){
 	node->data = data;
 	return node;
 }
-Data* createData(void *key, void *value){
-	Data* data = calloc(1, sizeof(Data));
-	data->key = key;
-	data->value = value;
-	return data;
+HashElement* createElement(void *key, void *value){
+	HashElement* element = calloc(1, sizeof(HashElement));
+	element->key = key;
+	element->value = value;
+	return element;
 }
 int put(HashMap *map, void *key, void *value){
 	int abc=0;
-	Data* data = createData(key, value);
-	Node* node = createNode(data);
+	HashElement* element = createElement(key, value);
+	Node* node = createNode(element);
     int bucketNumber = map->hashFunc(key) % 10;
 	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));
-	abc = insertNode(list, list->noOfElements,data);
+	abc = insertNode(list, list->noOfElements,element);
 	return abc;
 }
 
@@ -40,37 +40,37 @@ int searchData(HashMap* map , void* key){
 }
 void* get(HashMap *map, void *key){
 	Node* node;
-	Data* data;
+	HashElement* element;
 	int index,bucketNumber = map->hashFunc(key) % 10;
 	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));
 	if(0 == list->noOfElements) return NULL;
 	node = list->head;
 	for(index = 0;index < list->noOfElements; index++){
-		data = node->data;
-		if(!map->compare(key, data->key)) return data;
+		element = node->data;
+		if(!map->compare(key, element->key)) return element;
 		node = node->next;
 	}
 	return NULL;
 }
 int getIndexInBucket(HashMap* map ,void* key ,List* list){
-	Data* data;
+	HashElement* element;
 	int index = 1 ;
 	Node* node = list->head;
 	do{
-		data = node->data;
-		if (!map->compare(key ,data->key)) return index;
+		element = node->data;
+		if (!map->compare(key ,element->key)) return index;
 		node = node->next;
 		index++;
 	}while(node->next != NULL);
 	return index;
 }
 void* remove(HashMap *map, void *key){
-	void* data = get(map, key);
+	void* element = get(map, key);
 	int index ,bucketNumber = map->hashFunc(key) % 10;
 	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));
 	index = getIndexInBucket( map ,key ,list);
 	removeElement(list,index);
-	return data;
+	return element;
 }
 
 // dispose(HashMap *map)

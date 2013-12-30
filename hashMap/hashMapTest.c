@@ -38,56 +38,56 @@ void test_add_an_element_to_hashmap2(){
 	ASSERT(searchData(map,&key));
 }
 void test_gets_an_element_from_hashmap(){
-	Data* data;
+	HashElement* element;
 	String key = "intern" , value ="suraj";
 	HashMap* map = create(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
-	data = get(map, &key);
-	ASSERT(&key == data->key);
-	ASSERT(&value == data->value);
+	element = get(map, &key);
+	ASSERT(&key == element->key);
+	ASSERT(&value == element->value);
 }
 
 void test_gets_another_element_from_hashmap(){
-	Data *data1,*data2;
+	HashElement *element1,*element2;
 	String key1 = "intern1" , value1 ="suraj";
 	String key2 = "intern2" , value2 ="sumit";
 	HashMap* map = create(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key1 , &value1));
 	ASSERT(put(map, &key2 , &value2));
 
-	data1 = get(map, &key1);
-	data2 = get(map, &key2);
+	element1 = get(map, &key1);
+	element2 = get(map, &key2);
 
-	ASSERT(&key1 == data1->key);
-	ASSERT(&value1 == data1->value);
-	ASSERT(&key2 == data2->key);
-	ASSERT(&value2 == data2->value);
+	ASSERT(&key1 == element1->key);
+	ASSERT(&value1 == element1->value);
+	ASSERT(&key2 == element2->key);
+	ASSERT(&value2 == element2->value);
 }
 void test_removes_an_element_from_hashmap(){
-	Data* data;
+	HashElement* element;
 	String key="intern" , value ="sumit";
 	HashMap* map = create(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
-	data =remove(map, &key);
-	ASSERT(&key == data->key);
-	ASSERT(&value == data->value);
+	element =remove(map, &key);
+	ASSERT(&key == element->key);
+	ASSERT(&value == element->value);
 	ASSERT(-1 == searchData(map,&key));
 }
 
 void test_removes_two_elements_from_hashmap(){
-	Data *data1,*data2;
+	HashElement *element1,*element2;
 	String key1="intern1" , value1 ="sumit";
 	String key2 = "pm" , value2 ="suraj";	
 	HashMap* map = create(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key1 , &value1));
 	ASSERT(put(map, &key2 , &value2));
 
-	data1 = remove(map, &key1);
-	data2 = remove(map, &key2);
-	ASSERT(&key1 == data1->key);
-	ASSERT(&value1 == data1->value);
-	ASSERT(&key2 == data2->key);
-	ASSERT(&value2 == data2->value); 
+	element1 = remove(map, &key1);
+	element2 = remove(map, &key2);
+	ASSERT(&key1 == element1->key);
+	ASSERT(&value1 == element1->value);
+	ASSERT(&key2 == element2->key);
+	ASSERT(&value2 == element2->value); 
 	ASSERT(-1 == searchData(map,&key1));
 	ASSERT(-1 == searchData(map,&key2));
 }

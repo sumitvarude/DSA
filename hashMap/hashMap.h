@@ -12,7 +12,7 @@ typedef struct HashMap{
 typedef struct Data{
 	void* value;
 	void* key;
-}Data;
+}HashElement;
 
 HashMap* create(HashFunc hashFunc, CompareFunc compare);
 int put(HashMap *map, void *key, void *value);
