@@ -24,10 +24,10 @@ int compareIntegers(void* first, void* second) {
 	return *(int*)first-*(int*)second;
 };	
 void test_sort_with_integers(){
-	int base[] ={5,6,7,3,5,2,7,7};
-	int expected[] ={2,3,5,5,6,7,7,7}; 
-	sort(base,8,sizeof(int),compareIntegers);
-	ASSERT(0==memcmp(base,expected,8));
+	int base[] ={4,3,2,5,1};
+	int expected[] ={1,2,3,4,5}; 
+	sort(base,5,sizeof(int),compareIntegers);
+	ASSERT(0==memcmp(base,expected,5));
 }
 
 void test_sort_with_structures_element1() {
