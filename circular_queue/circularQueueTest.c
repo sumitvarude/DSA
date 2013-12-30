@@ -29,12 +29,13 @@ void test_Creates_queue_of_5_float_elements_1(){
 	ASSERT(areEqual(&expected,actual));
 };
 void test_inserts_8_in_queue(){
-	Queue* queue = create(sizeof(int), 5);
+	Queue *dequeued,*queue = create(sizeof(int), 5);
 	int array[] = {8,0,0,0,0};
 	int c = 8; 
 	Queue expected = {-1,0,sizeof(int),5,array};     
 	ASSERT(enqueue(queue,&c));
 	ASSERT(areEqual(&expected,queue));
+	ASSERT(dequeue(queue));
 };
 void test_enqueue_overwrites_after_queue_is_full(){
 	int c = 4,e=5; 
@@ -60,8 +61,8 @@ void test_removes_element_from_the_rear_of_Queue(){
    	ASSERT(enqueue(queue,&c));
    	ASSERT(enqueue(queue,&e));
 	result = dequeue(queue);
-	ASSERT(*result ==4);
-	ASSERT(0== queue->start);
+	ASSERT(*result == 4);
+	ASSERT(0 == queue->start);
 };
 
 void test_gives_null_if_queue_is_empty(){
