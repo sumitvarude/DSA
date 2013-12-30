@@ -23,12 +23,15 @@ Data* createData(void *key, void *value){
 	return data;
 }
 int put(HashMap *map, void *key, void *value){
+	int abc=0;
 	Data* data = createData(key, value);
 	Node* node = createNode(data);
     int bucketNumber = map->hashFunc(key) % 10;
 	List* list = (List*)(map->buckets+(sizeof(List)*bucketNumber));
-	return insertNode(list, list->noOfElements,data);
+	abc = insertNode(list, list->noOfElements,data);
+	return abc;
 }
+
 
 int searchData(HashMap* map , void* key){
     int bucketNumber = map->hashFunc(key) % 10;
@@ -69,7 +72,8 @@ void* remove(HashMap *map, void *key){
 	removeElement(list,index);
 	return data;
 }
-void dispose(HashMap *map){
-	free(map->buckets);
-	free(map);
-}
+
+// void dispose(HashMap *map){
+// 	free(map->buckets);
+// 	free(map);
+// }

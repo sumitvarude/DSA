@@ -2,9 +2,9 @@
 #include <string.h>
 #include "bracketMatching.h"
 
-int matchParenthesis(string s){
+int matchParenthesis(String s){
 	int i;
-	string openBrackets = {'{','[','('};
+	String openBrackets = {'{','[','('};
 	Stack* stack = create(sizeof(char),256);
 	for(i=0 ; i<strlen(s) ; i++){
 		if(s[i]=='{' || s[i]=='[' || s[i]=='('){

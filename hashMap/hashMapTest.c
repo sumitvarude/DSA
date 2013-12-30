@@ -26,6 +26,7 @@ void test_add_an_element_to_hashmap1(){
 	HashMap* map = create(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
 	ASSERT(searchData(map,&key));
+	// ldispose(map);
 }
 void test_add_an_element_to_hashmap2(){
 	int key1 = 10,key = 20;
