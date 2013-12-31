@@ -159,3 +159,24 @@ void test_15_search_gives_minus_one_if_data_not_found(){
         insertNode(list,2,&data[2]);
         ASSERT(-1 == search(list, &element, compareIntData));
 }
+void test_whether_iterator_gives_next_node(){
+	int res,elements[] = {20,40,60};
+	Iterator it;
+    List* list = createList();
+
+	void *e1;
+	res = insertNode(list,0,&elements[0]);
+	res = insertNode(list,1,&elements[1]);
+	res = insertNode(list,2,&elements[2]);
+	it = getIterator(list);
+	res = it.hasNext(&it);
+	e1 = it.next(&it);
+	ASSERT(1 == res);
+	ASSERT(20 == *(int*)e1);
+	e1 = it.next(&it);
+	ASSERT(40 == *(int*)e1);
+	e1 = it.next(&it);
+	ASSERT(60 == *(int*)e1);
+	e1 = it.next(&it);
+	ASSERT(NULL == e1);
+};

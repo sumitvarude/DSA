@@ -124,6 +124,11 @@ int main(){
 		test_15_search_gives_minus_one_if_data_not_found();
 	tearDown();
 	testEnded();
+	testStarted("test_whether_iterator_gives_next_node");
+	setup();
+		test_whether_iterator_gives_next_node();
+	tearDown();
+	testEnded();
 
 	summarizeTestCount();
 	fixtureTearDown();

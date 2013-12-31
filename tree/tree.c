@@ -95,7 +95,7 @@ Iterator getChildren(Tree *tree,void* parent){
 	if(parent == NULL){
 		it.list = tree->root;
 		it.current = NULL;
-		it.hasNext = NULL; //has next should have some function definition
+		it.hasNext = NULL; 
 		it.next = getRootNode;
 		return it;
 	}

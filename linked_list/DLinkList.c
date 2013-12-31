@@ -5,8 +5,8 @@
 Node* traverseTill(List* list,int index){
 	int i=1;
 	Node* currentNode = list->head;
-	while(i!=index){
-		currentNode=currentNode->next;
+	while(i!=index && currentNode!=NULL){
+		currentNode = currentNode->next;
 		i++;
 	}
 	return currentNode;
@@ -97,3 +97,25 @@ int removeElement(List* list, int index){
 	free(nodeToRemove);
 	return 1;
 }
+int hasCurrent(Iterator* it){
+	return ((Node*)(it->current)) != NULL;
+};
+
+void* current(Iterator* it){
+	void* result = NULL;
+	if(it->hasNext(it)){
+		result = ((Node*)(it->current))->data;
+		it->current = ((Node*)(it->current))->next;
+	}
+	return result;
+};
+
+Iterator getIterator(List* list){
+	Iterator it;
+	if(list==NULL) it.current = NULL;
+	else it.current = list->head;
+	it.list = list;
+	it.hasNext = hasCurrent;
+	it.next = current;
+	return it;
+};

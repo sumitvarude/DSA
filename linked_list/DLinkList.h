@@ -1,3 +1,4 @@
+#include "iterator.h"
 typedef struct Node{
 	void* data;
 	struct Node* previous;
@@ -10,12 +11,11 @@ typedef struct {
 
 typedef int (*Compare)(void* element1,void* element2);
 List* createList();
-int insertAtStart(List* list,void* data);
-int insertAtLast(List* list,void* data);
-int insertAtMiddle(List* list,int index,void* data);
 int insertNode(List* list , int index , void* data);
 Node* traverseTill(List* list,int index);
 int search(List* list , void* element , Compare compare);
-
+void dispose(List* list);
 int removeElement(List* list, int index);
 int getLength(List* list);
+
+Iterator getIterator(List* list);

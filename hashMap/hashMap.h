@@ -14,10 +14,10 @@ typedef struct Data{
 	void* key;
 }HashElement;
 
-HashMap* create(HashFunc hashFunc, CompareFunc compare);
+HashMap* createHashMap(HashFunc hashFunc, CompareFunc compare);
 int put(HashMap *map, void *key, void *value);
 void* get(HashMap *map, void *key);
-void* remove(HashMap *map, void *key);
+void* removeHashElement(HashMap *map, void *key);
 int searchData(HashMap* map , void *key);
-void* keys(HashMap *map) ;
-void dispose(HashMap *map);
+Iterator getKeys(HashMap *map) ;
+// void dispose(HashMap *map);

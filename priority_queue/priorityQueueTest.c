@@ -18,7 +18,7 @@ void test_inserts_element_in_queue(){
 void test_inserts_2nd_element_in_queue(){
 	Queue* queue = createQueue();
 	int result,one = 1,two = 2;
-	result = enqueue(queue,6,&one);
+	enqueue(queue,6,&one);
 	result = enqueue(queue,3,&two);
 	ASSERT(0 == isEmpty(queue));
 	ASSERT(1 == result);

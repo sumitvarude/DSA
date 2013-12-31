@@ -1,5 +1,5 @@
 #include "testUtils.h"
-#include "hashmap.h"
+#include "hashMap.h"
 #include "../customTypes.h"
 
 //create setup, tearDown, fixtureSetup, fixtureTearDown methods if needed
@@ -17,13 +17,13 @@ int hashFun(void *key){
 void test_add_an_element_to_hashmap(){
 	int key = 10;
 	char* value ="sumit";
-	HashMap* map = create(hashFun, areKeyEqual);
+	HashMap* map = createHashMap(hashFun, areKeyEqual);
 	ASSERT(put(map, &key , &value));
 	ASSERT(searchData(map,&key));
 }
 void test_add_an_element_to_hashmap1(){
 	String key="intern" , value ="sumit";
-	HashMap* map = create(hashFun, areKeyEqual1);
+	HashMap* map = createHashMap(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
 	ASSERT(searchData(map,&key));
 	// ldispose(map);
@@ -31,7 +31,7 @@ void test_add_an_element_to_hashmap1(){
 void test_add_an_element_to_hashmap2(){
 	int key1 = 10,key = 20;
 	char* value ="suraj";
-	HashMap* map = create(hashFun, areKeyEqual);
+	HashMap* map = createHashMap(hashFun, areKeyEqual);
 	ASSERT(put(map, &key1 , &value));
 	ASSERT(put(map, &key , &value));
 	ASSERT(searchData(map,&key1));
@@ -40,7 +40,7 @@ void test_add_an_element_to_hashmap2(){
 void test_gets_an_element_from_hashmap(){
 	HashElement* element;
 	String key = "intern" , value ="suraj";
-	HashMap* map = create(hashFun, areKeyEqual1);
+	HashMap* map = createHashMap(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
 	element = get(map, &key);
 	ASSERT(&key == element->key);
@@ -51,7 +51,7 @@ void test_gets_another_element_from_hashmap(){
 	HashElement *element1,*element2;
 	String key1 = "intern1" , value1 ="suraj";
 	String key2 = "intern2" , value2 ="sumit";
-	HashMap* map = create(hashFun, areKeyEqual1);
+	HashMap* map = createHashMap(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key1 , &value1));
 	ASSERT(put(map, &key2 , &value2));
 
@@ -66,9 +66,9 @@ void test_gets_another_element_from_hashmap(){
 void test_removes_an_element_from_hashmap(){
 	HashElement* element;
 	String key="intern" , value ="sumit";
-	HashMap* map = create(hashFun, areKeyEqual1);
+	HashMap* map = createHashMap(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key , &value));
-	element =remove(map, &key);
+	element = removeHashElement(map, &key);
 	ASSERT(&key == element->key);
 	ASSERT(&value == element->value);
 	ASSERT(-1 == searchData(map,&key));
@@ -78,16 +78,31 @@ void test_removes_two_elements_from_hashmap(){
 	HashElement *element1,*element2;
 	String key1="intern1" , value1 ="sumit";
 	String key2 = "pm" , value2 ="suraj";	
-	HashMap* map = create(hashFun, areKeyEqual1);
+	HashMap* map = createHashMap(hashFun, areKeyEqual1);
 	ASSERT(put(map, &key1 , &value1));
 	ASSERT(put(map, &key2 , &value2));
 
-	element1 = remove(map, &key1);
-	element2 = remove(map, &key2);
+	element1 = removeHashElement(map, &key1);
+	element2 = removeHashElement(map, &key2);
 	ASSERT(&key1 == element1->key);
 	ASSERT(&value1 == element1->value);
 	ASSERT(&key2 == element2->key);
 	ASSERT(&value2 == element2->value); 
 	ASSERT(-1 == searchData(map,&key1));
 	ASSERT(-1 == searchData(map,&key2));
+}
+
+void test_key_gives_all_the_keys_from_the_hashMap(){
+    Iterator it;
+    int i = 0 ,key[] = {21,22};
+    char* values[] ={"suraj","sumit"};
+    HashMap* map = createHashMap(hashFun, areKeyEqual);
+    ASSERT(put(map, &key[0] , &values[0]));
+    ASSERT(put(map, &key[1] , &values[1]));
+    it = getKeys(map);
+    i = 0;
+    while(it.hasNext(&it)){
+            ASSERT(& key[i] == it.next(&it)); 
+            i++;
+    }
 }
