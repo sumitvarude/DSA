@@ -1,46 +1,46 @@
 #include "mergeSort.h"
 #include <memory.h>
 #include <stdlib.h>
-int merge(void* destination, void* left, void* right, size_t leftLength, size_t rightLength,size_t typesize, CompareFunc cmp){
-    int i=0,j=0,k=0;
-    while(i < leftLength && j < rightLength){
-        if(cmp(left+(i*typesize), right+(j*typesize))){
-            memmove(destination+(k*typesize), left+(i*typesize), typesize);
-            i++;
+int merge(void* destination, void* left, void* right, int lALength, int rALength,int typesize, CompareFunc cmp){
+    int leftCounter = 0,rightCounter =0,k=0;
+    while(leftCounter < lALength && rightCounter < rALength){
+        if(cmp(left + (leftCounter * typesize), right + (rightCounter * typesize))){
+            memmove(destination + (k * typesize), left + (leftCounter*typesize), typesize);
+            leftCounter++;
         }
         else{
-            memmove(destination+(k*typesize), right+(j*typesize), typesize);
-            j++;
+            memmove(destination + (k*typesize), right + (rightCounter*typesize), typesize);
+            rightCounter++;
         }
         k++;
     }
-    while( j < rightLength){
-        memmove(destination+(k*typesize), right+(j*typesize), typesize);
-        j++;
+    while( rightCounter < rALength){
+        memmove(destination + (k*typesize), right + (rightCounter*typesize), typesize);
+        rightCounter++;
         k++;
     }
-    while(i < leftLength){
-        memmove(destination+(k*typesize), left+(i*typesize), typesize);
-        i++;
+    while(leftCounter < lALength){
+        memmove(destination + (k*typesize), left + (leftCounter*typesize), typesize);
+        leftCounter++;
         k++;
     }
     return 1;
 }
 
 void performMergeSort(void* base, int numberOfElements, int typesize, CompareFunc comp){
-    int mid = numberOfElements/2,i,j,leftLength,rightLength;
+    int mid = numberOfElements/2,i,j,lALength,rALength;
     void* left = calloc(mid,typesize);
     void* right = calloc((numberOfElements-mid),typesize);
     if(numberOfElements < 2) return;
-    leftLength = mid;
-    rightLength = numberOfElements-mid;
-    for(i=0;i<mid;i++)
-            memmove(left+i*typesize,base+i*typesize,typesize);
-    for(i=mid;i<numberOfElements;i++)
-            memmove(right+typesize*(i-mid),base+typesize*i,typesize);
-    performMergeSort(left,leftLength,typesize,comp);
-    performMergeSort(right,rightLength,typesize,comp);
-    merge(base, left, right, leftLength, rightLength, typesize, comp);
+    lALength = mid;
+    rALength = numberOfElements-mid;
+    for(i = 0;i < mid; i++)
+        memmove(left + (i*typesize),base + (i*typesize), typesize);
+    for(i = mid;i < numberOfElements; i++)
+        memmove(right + (typesize*(i-mid)),base + (typesize*i), typesize);
+    performMergeSort(left, lALength, typesize, comp);
+    performMergeSort(right, rALength, typesize, comp);
+    merge(base, left, right, lALength, rALength, typesize, comp);
     free(left);
     free(right);
 }
